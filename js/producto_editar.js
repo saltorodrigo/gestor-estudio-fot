@@ -10,7 +10,7 @@ createApp({
             imagen: "",
             stock: 0,
             precio: 0,
-            url: 'http://localhost:5000/productos/' + id,
+            url: 'http://rodrigosalto.pythonanywhere.com/' + id,
         }
     },
     methods: {
@@ -47,7 +47,7 @@ createApp({
             fetch(this.url, options)
                 .then(function () {
                     alert("Registro modificado")
-                    window.location.href = "../templates/productos.html";
+                    window.location.href = "index.html";
                 })
                 .catch(err => {
                     console.error(err);
