@@ -113,32 +113,36 @@
             <br>
             <a class="btn btn-primary" href="producto_nuevo.html">Nuevo</a>
             <br><br>
-            <div v-if="error">
+            <!-- <div v-if="error">
                 <p>Lo sentimos, ........</p>
-            </div>
-            <div v-else>
-                <section v-if="cargando">
+            </div> -->
+            <!-- <div v-else> -->
+            <div >
+                <!-- <section v-if="cargando">
                     <div class="spinner-border"></div>
                     <p>Cargando .....</p>
-                </section>
-                <section v-else>
+                </section> -->
+                <!-- <section v-else> -->
+                <section >
                     <div class="grid-container">
                         <div class="grid-item">
-                            <div><b>ID:</b> {{ productos[0].id }}</div>
-                            <div><b>Tipo: </b>{{ productos[0].nombre }}</div>
+                            <div><b>ID:</b> 1</div>
+                            <div><b>Tipo: </b>VIDEOS MUSICALES</div>
                         </div>
                         <div class="description-item">
-                            <div><b>Descripcion:</b> {{ productos[0].precio }}</div>
+                            <div><b>Descripcion:</b> Transformamos tus canciones en impresionantes obras audiovisuales.
+                               Nuestros equipos de filmación de alta calidad y técnicas de edición nos permiten producir videosúnicos y atractivos para tu audiencia.
+                            </div>
                         </div>
                         
                        
                         <div class="grid-item wide-item"><b>Imagenes:</b></div>
                         
                         <div class="actions-container">
-                            <a class="btn btn-primary"
-                                :href="'./producto_update.html?id=' + productos[0].id">Editar</a>
+                            <a class="btn btn-primary" >Editar</a>
+                              
                             <button type="button" class="btn btn-danger"
-                                @click="eliminar(productos[0].id)">Eliminar</button>
+                                >Eliminar</button>
                         </div>
                     </div>
                 </section>
