@@ -2,11 +2,102 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Gestor-EstudioFot</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+        }
+
+        h1 {
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .camera-icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .btn-primary {
+            background-color: #333;
+            color: #fff;
+            border-color: #333;
+            margin-right: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: #444;
+            border-color: #444;
+        }
+
+        .btn-danger {
+            background-color: #555;
+            color: #fff;
+            border-color: #555;
+        }
+
+        .btn-danger:hover {
+            background-color: #666;
+            border-color: #666;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            border: 2px solid #333;
+            padding: 10px;
+        }
+
+        .grid-item {
+            border: 1px solid #333;
+            padding: 10px;
+            height: 100px;
+        }
+        .grid-item div{
+            padding: 5px;
+        }
+
+        .wide-item {
+            grid-column: 1 / span 4;
+            height: 170px;
+        }
+      
+
+        .description-item{
+            border: 1px solid #333;
+            padding: 10px;
+            grid-column: 2 / span 3;
+            height: 100px;
+        }
+
+
+        .actions-container {
+            grid-column: 4 ;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: 5px;
+            
+
+        }
+
+        table {
+            color: #fff;
+        }
+
+        td {
+            color: #eee;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,12 +106,15 @@
     </header>
     <main>
         <div id="app" class="container">
-            <h1>Productos</h1>
+            <h1>
+                Gestor de servicios de EstudioFot
+                <span class="camera-icon">&#128247;</span>
+            </h1>
             <br>
             <a class="btn btn-primary" href="producto_nuevo.html">Nuevo</a>
             <br><br>
             <div v-if="error">
-                <p>Lo sentimos , ........</p>
+                <p>Lo sentimos, ........</p>
             </div>
             <div v-else>
                 <section v-if="cargando">
@@ -28,36 +122,24 @@
                     <p>Cargando .....</p>
                 </section>
                 <section v-else>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col">Stock</th>
-                                    <th scope="col">Imagen</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="" v-for="producto in productos">
-                                    <td scope="row">{{producto.id}}</td>
-                                    <td>{{producto.nombre}}</td>
-                                    <td>{{producto.precio}}</td>
-                                    <td>{{producto.stock}}</td>
-                                    <td>
-                                        <img width="60" :src="producto.imagen" :alt="producto.nombre">
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-primary"
-                                            :href="'./producto_update.html?id='+ producto.id">Editar</a>
-                                        <button type="button" class="btn btn-danger"
-                                            v-on:click="eliminar(producto.id)">Eliminar</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <div><b>ID:</b> {{ productos[0].id }}</div>
+                            <div><b>Tipo: </b>{{ productos[0].nombre }}</div>
+                        </div>
+                        <div class="description-item">
+                            <div><b>Descripcion:</b> {{ productos[0].precio }}</div>
+                        </div>
+                        
+                       
+                        <div class="grid-item wide-item"><b>Imagenes:</b></div>
+                        
+                        <div class="actions-container">
+                            <a class="btn btn-primary"
+                                :href="'./producto_update.html?id=' + productos[0].id">Editar</a>
+                            <button type="button" class="btn btn-danger"
+                                @click="eliminar(productos[0].id)">Eliminar</button>
+                        </div>
                     </div>
                 </section>
             </div>
