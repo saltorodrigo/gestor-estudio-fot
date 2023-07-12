@@ -3,7 +3,7 @@ createApp({
     data() {
         return {
             productos: [],
-            url:'http://rodrigosalto.pythonanywhere.com/productos',
+            url:'https://rodrigosalto.pythonanywhere.com/productos',
             error: false,
             cargando: true,
             id: 0,
