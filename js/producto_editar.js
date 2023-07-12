@@ -10,7 +10,7 @@ createApp({
             imagen: "",
             stock: 0,
             precio: 0,
-            url: 'http://rodrigosalto.pythonanywhere.com/' + id,
+            url: 'https://rodrigosalto.pythonanywhere.com/' + id,
         }
     },
     methods: {
